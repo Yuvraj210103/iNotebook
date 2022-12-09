@@ -1,10 +1,21 @@
 import React, { useContext, useState, useRef } from "react";
 import noteContext from "../context/notes/noteContext";
-import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
-import { Modal } from "react-responsive-modal";
-import "react-responsive-modal/styles.css";
+import { AiOutlineDelete, AiOutlineEdit,AiOutlineClose } from "react-icons/ai";
+import ReactModal from 'react-modal';
+
 
 const NoteItem = (props) => {
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
 
@@ -44,9 +55,11 @@ const NoteItem = (props) => {
     <div>
       {/* Modal to edit Note */}
 
-      <div>
-        <Modal open={open1} onClose={() => onCloseModal1()} center>
+      <div className="flex">
+        <ReactModal isOpen={open1} style={customStyles} onRequestClose={() => onCloseModal1()} center>
+        
           <div className="flex flex-col  sm:min-w-[300px] md:min-w-[400px]">
+          <button className="ml-auto" onClick={onCloseModal1}><AiOutlineClose size={25}/></button>
             <button
               onClick={() =>
                 handleClick(
@@ -79,17 +92,20 @@ const NoteItem = (props) => {
               onChange={onChange}
             ></textarea>
           </div>
-        </Modal>
+        </ReactModal>
       </div>
 
       {/* Modal to view a full note */}
 
       <div className="p-5">
-        <Modal open={open2} onClose={() => onCloseModal2()} center>
+        <ReactModal isOpen={open2} style={customStyles} onRequestClose={() => onCloseModal2()} center>
+          <div className="flex flex-col">
+        <button className="ml-auto " onClick={onCloseModal2}><AiOutlineClose size={25}/></button>
           <h1 className="font-bold text-2xl my-2">{note.title}</h1>
           <h3 className="font-light">#{note.tag}</h3>
           <p className="my-2 font-semibold">{note.description}</p>
-        </Modal>
+          </div>
+        </ReactModal>
       </div>
 
       {/* Card to show Single note */}
