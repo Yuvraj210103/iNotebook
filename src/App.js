@@ -10,6 +10,7 @@ import Login from "./Component/Login";
 import Register from "./Component/Register";
 import Alert from "./Component/Alert";
 
+
 function App() {
 
   const [alert, setAlert] = useState(null);
@@ -29,6 +30,7 @@ function App() {
       <NoteState>
       <BrowserRouter>
       <Navbar showAlert={showAlert}/>
+      
       <Alert alert={alert}/>
         <Routes>
        

@@ -39,9 +39,9 @@ export const Navbar = (props) => {
         </ul>{" "}
 
         {localStorage.getItem("token") ? (
-          <button onClick={()=> { if (window.confirm('Logout?')) userLogout()}} className=" px-1 text-white rounded-sm bg-purple-500 ">Logout</button>
+          <button onClick={()=> { if (window.confirm('Logout?')) userLogout()}} className=" ml-auto md:ml-0 px-1 text-white rounded-sm bg-purple-500 ">Logout</button>
         ) : (
-          <Link to="/login" className="ml-auto md:mx-3">
+          <Link to="/login" className=" md:mx-3">
             <button className=" px-1  text-white rounded-sm  bg-purple-500">
               Login
             </button>

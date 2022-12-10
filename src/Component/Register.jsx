@@ -2,17 +2,20 @@ import React,{useEffect,useState} from 'react'
 import registerImg from './Assets/register.svg'
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link ,useNavigate} from "react-router-dom";
+import Loading from "./Loading";
 
 const Register = (props) => {
   useEffect(() => {
     props.showNotes(false);
   }, []);
+  const [loading, setloading] = useState(false);
   let history = useNavigate()
 
   const [cred, setCred] = useState({ fullName:"", email:"",password:""})
 
   const handleClick =async (e)=>{
     e.preventDefault();
+    setloading(true);
     const response = await fetch(`https://bored-cod-fez.cyclic.app/api/auth/createuser`, {
       method: "POST",
       headers: {
@@ -35,13 +38,14 @@ const Register = (props) => {
       props.showAlert("User Not created", "bg-red-500")
     }
    
-  
+  setloading(false);
   }
   const onChange = (e)=>{
     setCred({...cred, [e.target.name]: e.target.value})
   }
   
   return (
+    <div>{loading ? <Loading /> : 
 
     <div className="grid md:grid-cols-2 my-16 gap-x-24">
     
@@ -68,6 +72,7 @@ const Register = (props) => {
         <h3> Have an account? <Link to="/login"> <span className='underline text-blue-500'>login</span></Link></h3>
     </div>
     </div>
+    }</div>
   )
 }
 
