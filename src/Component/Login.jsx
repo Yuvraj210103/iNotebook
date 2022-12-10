@@ -35,8 +35,9 @@ const Login = (props) => {
       props.showAlert("Login successful", "bg-green-500");
     } else {
       props.showAlert("Invalid Credentials", "bg-red-500");
+      setloading(false);
     }
-    setloading(true);
+    setloading(false);
   };
   const onChange = (e) => {
     setCred({ ...cred, [e.target.name]: e.target.value });

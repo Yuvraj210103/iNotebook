@@ -5,11 +5,10 @@ export const Navbar = (props) => {
   let location = window.location.pathname;
 
   const userLogout = () => {
-    localStorage.clear('token')
-    props.showAlert("Successfully Logged out", "bg-green-500")
+    localStorage.clear("token");
+    props.showAlert("Successfully Logged out", "bg-green-500");
     window.location.reload();
-    
-  }
+  };
 
   return (
     <div className=" ">
@@ -17,7 +16,7 @@ export const Navbar = (props) => {
         <label htmlFor="" className="mx-3 text-xl">
           iNotebook
         </label>
-        <ul className="md:flex ml-auto hidden">
+        <ul className="md:flex md:ml-auto hidden">
           <Link
             className={`${
               location === "/" ? "border-b-2 border-blue-400" : ""
@@ -37,12 +36,18 @@ export const Navbar = (props) => {
             <li className="mx-3">About</li>
           </Link>
         </ul>{" "}
-
         {localStorage.getItem("token") ? (
-          <button onClick={()=> { if (window.confirm('Logout?')) userLogout()}} className=" ml-auto md:ml-0 px-1 text-white rounded-sm bg-purple-500 ">Logout</button>
+          <button
+            onClick={() => {
+              if (window.confirm("Logout?")) userLogout();
+            }}
+            className="ml-auto md:ml-0 px-1 text-white rounded-sm bg-purple-500 "
+          >
+            Logout
+          </button>
         ) : (
-          <Link to="/login" className=" md:mx-3">
-            <button className=" px-1  text-white rounded-sm  bg-purple-500">
+          <Link to="/login" className="ml-auto md:mx-3">
+            <button className="  px-1  text-white rounded-sm  bg-purple-500">
               Login
             </button>
           </Link>
