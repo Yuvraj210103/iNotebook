@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
 const pdf = require('html-pdf-chrome');
+const router = express.Router();
 
 app.use(express.json());
 
-app.post('/generate-pdf', async (req, res) => {
+router.get('/generate-pdf', async (req, res) => {
     try {
       const options = {
         format: 'A4',
@@ -25,5 +26,8 @@ app.post('/generate-pdf', async (req, res) => {
     } catch (error) {
       console.log(error);
       res.status(500).send('Something went wrong');
-    }
+    } 
+  
   });
+
+  module.exports = router;
