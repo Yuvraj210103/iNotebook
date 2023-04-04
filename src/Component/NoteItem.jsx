@@ -86,7 +86,7 @@ const NoteItem = (props) => {
               onChange={onChange}
             ></input>
             <textarea
-              className="p-2 outline outline-0"
+              className="p-2 outline outline-0 overflow-hidden text-ellipsis"
               defaultValue={note.description}
               name="description"
               onChange={onChange}
@@ -103,7 +103,7 @@ const NoteItem = (props) => {
         <button className="ml-auto " onClick={onCloseModal2}><AiOutlineClose size={25}/></button>
           <h1 className="font-bold text-2xl my-2">{note.title}</h1>
           <h3 className="font-light">#{note.tag}</h3>
-          <p className="my-2 font-semibold">{note.description}</p>
+          <p className="my-2 font-semibold overflow-hidden text-ellipsis">{note.description}</p>
           </div>
         </ReactModal>
       </div>
@@ -135,7 +135,7 @@ const NoteItem = (props) => {
           </div>
         </div>
         <h3 className="font-light">#{note.tag.slice(0, 20)}</h3>
-        <p className="my-2 font-semibold h-20 ">
+        <p className="my-2 font-semibold h-20 overflow-hidden text-ellipsis">
           {note.description.slice(0, 100)}...{" "}
         </p>
         <button  onClick={() => onOpenModal2()} className="py-1 px-3 font-bold hover:scale-105 rounded-md bg-purple-500 text-white mr-auto">View</button>

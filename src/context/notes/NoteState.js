@@ -3,7 +3,7 @@ import { json } from "react-router-dom";
 import NoteContexct from "./noteContext";
 
 const NoteState = (props) => {
-  const host = "https://bored-cod-fez.cyclic.app/";
+  const host = "https://jittery-neckerchief-ray.cyclic.app";
   const notesInitial = [];
   const [notes, setnotes] = useState(notesInitial);
   //Add a Note

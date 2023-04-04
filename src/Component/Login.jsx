@@ -17,7 +17,7 @@ const Login = (props) => {
     e.preventDefault();
     setloading(true);
     const response = await fetch(
-      `https://bored-cod-fez.cyclic.app/api/auth/login`,
+      `https://jittery-neckerchief-ray.cyclic.app/api/auth/login`,
       {
         method: "POST",
         headers: {
@@ -50,12 +50,7 @@ const Login = (props) => {
           <img src={loginImg} alt="" className="" />
         </div>
         <div className="flex-col justify-center items-center mx-8 md:mx-20 order-1">
-          <Link to="/">
-            {" "}
-            <button className="text-purple-500 mr-auto my-6 flex items-center">
-              <AiOutlineArrowLeft className="mx-1" /> Home
-            </button>
-          </Link>
+          
 
           <h1 className="text-3xl font-extrabold ">Login</h1>
           <h3 className="my-1">Sign in on the internal platform</h3>
