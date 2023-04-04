@@ -107,9 +107,5 @@ router.delete( "/deletenote/:id",fetchuser,async (req, res) => {
 }
 );
 
-router.get("/testing", async (req, res) => {
-  console.log('running');
-  res.json('runnin')
-});
 
 module.exports = router;
